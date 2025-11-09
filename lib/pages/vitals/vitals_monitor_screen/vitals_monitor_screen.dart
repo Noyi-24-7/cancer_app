@@ -580,8 +580,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                       ),
                                                       Builder(
                                                         builder: (context) {
-                                                          if (_model
-                                                                  .vitalsMonitoringActive ==
+                                                          if (vitalsMonitoringActive ==
                                                               true) {
                                                             return FFButtonWidget(
                                                               onPressed:
@@ -724,8 +723,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                         '') {
                                                                   FFAppState()
                                                                           .currentVitalsData =
-                                                                      _model
-                                                                          .initialVitalsData!;
+                                                                      initialVitalsData!;
                                                                   safeSetState(
                                                                       () {});
                                                                   FFAppState()
@@ -786,8 +784,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                       .vitalsDeviceId,
                                                                   FFAppState()
                                                                       .firebaseRestApiUrl,
-                                                                  _model
-                                                                      .pollingInterval,
+                                                                  pollingInterval,
                                                                 );
 
                                                                 safeSetState(
@@ -2519,10 +2516,8 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                       Container(
                                                         width: double.infinity,
                                                         child: TextFormField(
-                                                          controller: _model
-                                                              .editHRTextController,
-                                                          focusNode: _model
-                                                              .editHRFocusNode,
+                                                          controller: editHRTextController,
+                                                          focusNode: editHRFocusNode,
                                                           autofocus: false,
                                                           obscureText: false,
                                                           decoration:
@@ -2639,8 +2634,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                   .primaryText,
                                                           enableInteractiveSelection:
                                                               true,
-                                                          validator: _model
-                                                              .editHRTextControllerValidator
+                                                          validator: editHRTextControllerValidator
                                                               .asValidator(
                                                                   context),
                                                         ),
@@ -2709,8 +2703,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
                                                             editHR = double
-                                                                .tryParse(_model
-                                                                    .editHRTextController
+                                                                .tryParse(editHRTextController
                                                                     .text);
                                                             safeSetState(() {});
                                                             patchHR =
@@ -2953,10 +2946,8 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                       Container(
                                                         width: double.infinity,
                                                         child: TextFormField(
-                                                          controller: _model
-                                                              .editFHRTextController,
-                                                          focusNode: _model
-                                                              .editFHRFocusNode,
+                                                          controller: editFHRTextController,
+                                                          focusNode: editFHRFocusNode,
                                                           autofocus: false,
                                                           obscureText: false,
                                                           decoration:
@@ -3073,8 +3064,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                   .primaryText,
                                                           enableInteractiveSelection:
                                                               true,
-                                                          validator: _model
-                                                              .editFHRTextControllerValidator
+                                                          validator: editFHRTextControllerValidator
                                                               .asValidator(
                                                                   context),
                                                         ),
@@ -3143,8 +3133,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
                                                             editFHR = double
-                                                                .tryParse(_model
-                                                                    .editFHRTextController
+                                                                .tryParse(editFHRTextController
                                                                     .text);
                                                             safeSetState(() {});
                                                             patchFHR =
@@ -3154,8 +3143,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                   'VITALS_001',
                                                               jsonPath:
                                                                   'vitals/fetalHeartRate',
-                                                              newValue: _model
-                                                                  .editFHR,
+                                                              newValue: editFHR,
                                                             );
 
                                                             if ((patchFHR
@@ -3387,10 +3375,8 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                       Container(
                                                         width: double.infinity,
                                                         child: TextFormField(
-                                                          controller: _model
-                                                              .editTempTextController,
-                                                          focusNode: _model
-                                                              .editTempFocusNode,
+                                                          controller: editTempTextController,
+                                                          focusNode: editTempFocusNode,
                                                           autofocus: false,
                                                           obscureText: false,
                                                           decoration:
@@ -3509,8 +3495,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                   .primaryText,
                                                           enableInteractiveSelection:
                                                               true,
-                                                          validator: _model
-                                                              .editTempTextControllerValidator
+                                                          validator: editTempTextControllerValidator
                                                               .asValidator(
                                                                   context),
                                                         ),
@@ -3580,8 +3565,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                           onPressed: () async {
                                                             editTemp =
                                                                 double.tryParse(
-                                                                    _model
-                                                                        .editTempTextController
+                                                                        editTempTextController
                                                                         .text);
                                                             safeSetState(() {});
                                                             patchTemp =
@@ -3591,12 +3575,10 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                   'VITALS_001',
                                                               jsonPath:
                                                                   'vitals/temperature',
-                                                              newValue: _model
-                                                                  .editTemp,
+                                                              newValue: editTemp,
                                                             );
 
-                                                            if ((_model
-                                                                    .patchTemp
+                                                            if ((patchTemp
                                                                     ?.succeeded ??
                                                                 true)) {
                                                               ScaffoldMessenger
@@ -3825,10 +3807,8 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                       Container(
                                                         width: double.infinity,
                                                         child: TextFormField(
-                                                          controller: _model
-                                                              .editSysTextController,
-                                                          focusNode: _model
-                                                              .editSysFocusNode,
+                                                          controller: editSysTextController,
+                                                          focusNode: editSysFocusNode,
                                                           autofocus: false,
                                                           obscureText: false,
                                                           decoration:
@@ -3945,8 +3925,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                   .primaryText,
                                                           enableInteractiveSelection:
                                                               true,
-                                                          validator: _model
-                                                              .editSysTextControllerValidator
+                                                          validator: editSysTextControllerValidator
                                                               .asValidator(
                                                                   context),
                                                         ),
@@ -3954,10 +3933,8 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                       Container(
                                                         width: double.infinity,
                                                         child: TextFormField(
-                                                          controller: _model
-                                                              .editDiaTextController,
-                                                          focusNode: _model
-                                                              .editDiaFocusNode,
+                                                          controller: editDiaTextController,
+                                                          focusNode: editDiaFocusNode,
                                                           autofocus: false,
                                                           obscureText: false,
                                                           decoration:
@@ -4074,8 +4051,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                   .primaryText,
                                                           enableInteractiveSelection:
                                                               true,
-                                                          validator: _model
-                                                              .editDiaTextControllerValidator
+                                                          validator: editDiaTextControllerValidator
                                                               .asValidator(
                                                                   context),
                                                         ),
@@ -4144,8 +4120,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
                                                             editSys = double
-                                                                .tryParse(_model
-                                                                    .editSysTextController
+                                                                .tryParse(editSysTextController
                                                                     .text);
                                                             safeSetState(() {});
                                                             patchSys =
@@ -4155,8 +4130,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                   'VITALS_001',
                                                               jsonPath:
                                                                   'vitals/bloodPressure',
-                                                              newValue: _model
-                                                                  .editSys,
+                                                              newValue: editSys,
                                                             );
 
                                                             if ((patchSys
@@ -4271,8 +4245,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
                                                             editDia = double
-                                                                .tryParse(_model
-                                                                    .editDiaTextController
+                                                                .tryParse(editDiaTextController
                                                                     .text);
                                                             safeSetState(() {});
                                                             patchDia =
@@ -4282,8 +4255,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                   'VITALS_001',
                                                               jsonPath:
                                                                   'vitals/bloodPressure',
-                                                              newValue: _model
-                                                                  .editDia,
+                                                              newValue: editDia,
                                                             );
 
                                                             if ((patchDia
@@ -4515,10 +4487,8 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                       Container(
                                                         width: double.infinity,
                                                         child: TextFormField(
-                                                          controller: _model
-                                                              .editWeightTextController,
-                                                          focusNode: _model
-                                                              .editWeightFocusNode,
+                                                          controller: editWeightTextController,
+                                                          focusNode: editWeightFocusNode,
                                                           autofocus: false,
                                                           obscureText: false,
                                                           decoration:
@@ -4637,8 +4607,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                   .primaryText,
                                                           enableInteractiveSelection:
                                                               true,
-                                                          validator: _model
-                                                              .editWeightTextControllerValidator
+                                                          validator: editWeightTextControllerValidator
                                                               .asValidator(
                                                                   context),
                                                         ),
@@ -4708,8 +4677,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                           onPressed: () async {
                                                             editWeight =
                                                                 double.tryParse(
-                                                                    _model
-                                                                        .editWeightTextController
+                                                                        editWeightTextController
                                                                         .text);
                                                             safeSetState(() {});
                                                             patchWeight =
@@ -4719,12 +4687,10 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                   'VITALS_001',
                                                               jsonPath:
                                                                   'vitals/weight',
-                                                              newValue: _model
-                                                                  .editWeight,
+                                                              newValue: editWeight,
                                                             );
 
-                                                            if ((_model
-                                                                    .patchWeight
+                                                            if ((patchWeight
                                                                     ?.succeeded ??
                                                                 true)) {
                                                               ScaffoldMessenger
@@ -4949,8 +4915,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   FlutterFlowDropDown<String>(
-                                                    controller: _model
-                                                            .dropDownValueController ??=
+                                                    controller: dropDownValueController ??=
                                                         FormFieldController<
                                                             String>(
                                                       dropDownValue ??=
@@ -4963,8 +4928,7 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                       '7d'
                                                     ],
                                                     onChanged: (val) async {
-                                                      safeSetState(() => _model
-                                                          .dropDownValue = val);
+                                                      safeSetState(() =>                                                           .dropDownValue = val);
                                                       selectedTimeRange =
                                                           dropDownValue!;
                                                       safeSetState(() {});
@@ -5031,7 +4995,6 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                         builder: (context) {
                                                           if (functions
                                                                   .getHistoryCount(
-                                                                      _model
                                                                           .vitalsHistoryString!) >
                                                               0) {
                                                             return Builder(
@@ -5039,7 +5002,6 @@ class _VitalsMonitorScreenWidgetState extends State<VitalsMonitorScreenWidget>
                                                                   (context) {
                                                                 final vitalsList = functions
                                                                     .generateIndexList(
-                                                                        _model
                                                                             .vitalsHistoryString!)
                                                                     .toList();
 

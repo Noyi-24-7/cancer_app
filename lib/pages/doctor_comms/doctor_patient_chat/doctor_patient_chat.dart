@@ -510,12 +510,12 @@ class _MessagesList extends StatelessWidget {
             if (getJsonField(messageItem, r'''$.doctorFlag''') != null) {
               return VoiceMessageBubbleDocWidget(
                 key: Key('Keytaj_${index}_of_${messages.length}'),
-                messageData: getJsonField(messageItem, r'''$'''),
+                messageData: messageItem,
               );
             } else {
               return VoiceMessageBubblePatientWidget(
                 key: Key('Keybzi_${index}_of_${messages.length}'),
-                messageData: getJsonField(messageItem, r'''$'''),
+                messageData: messageItem,
               );
             }
           },
