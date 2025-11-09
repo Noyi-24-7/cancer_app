@@ -1,0 +1,330 @@
+{
+  "audio_to_base64.dart": {
+    "old_identifier_name": "audioToBase64",
+    "new_identifier_name": "audioToBase64",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "cb45d854503f2ae4c4718de5c3228ef53e9e30fe813892fedbec9b6c54404683",
+    "original_checksum": "cb45d854503f2ae4c4718de5c3228ef53e9e30fe813892fedbec9b6c54404683"
+  },
+  "filter_content_by_category.dart": {
+    "old_identifier_name": "filterContentByCategory",
+    "new_identifier_name": "filterContentByCategory",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "02810462977551ec1be4482d53d5e6e937d7f80c474436ee4a1cb55bf341ed96",
+    "original_checksum": "02810462977551ec1be4482d53d5e6e937d7f80c474436ee4a1cb55bf341ed96"
+  },
+  "get_sample_educational_content.dart": {
+    "old_identifier_name": "getSampleEducationalContent",
+    "new_identifier_name": "getSampleEducationalContent",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "614d596ce8cde44c8845f58257b1260871a0817bb20f30cae08d70c02469a328",
+    "original_checksum": "614d596ce8cde44c8845f58257b1260871a0817bb20f30cae08d70c02469a328"
+  },
+  "prepare_article_for_audio.dart": {
+    "old_identifier_name": "prepareArticleForAudio",
+    "new_identifier_name": "prepareArticleForAudio",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "bb67711d38d83875b930e940ed0cb53486e8fb6d5b4a4f08aae6f0e1e9680712",
+    "original_checksum": "bb67711d38d83875b930e940ed0cb53486e8fb6d5b4a4f08aae6f0e1e9680712"
+  },
+  "articles_to_json_string.dart": {
+    "old_identifier_name": "articlesToJsonString",
+    "new_identifier_name": "articlesToJsonString",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "0911e02beb84a3e65c3c33e3c25389aaab268fdfcb11d3aac723a2f0f9916b5f",
+    "original_checksum": "0911e02beb84a3e65c3c33e3c25389aaab268fdfcb11d3aac723a2f0f9916b5f"
+  },
+  "extract_translated_data.dart": {
+    "old_identifier_name": "extractTranslatedData",
+    "new_identifier_name": "extractTranslatedData",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "f1fe66d1e0e35c3735c5f09970e68b8c8b0709b23e55557a02294e1d5b41e04a",
+    "original_checksum": "f1fe66d1e0e35c3735c5f09970e68b8c8b0709b23e55557a02294e1d5b41e04a"
+  },
+  "extract_audio_url.dart": {
+    "old_identifier_name": "extractAudioUrl",
+    "new_identifier_name": "extractAudioUrl",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "ba79585bac10b439b60a8780bc2e01a73e6f25fe83ace4309634d3c5179732e3",
+    "original_checksum": "ba79585bac10b439b60a8780bc2e01a73e6f25fe83ace4309634d3c5179732e3"
+  },
+  "format_messages_for_a_p_i.dart": {
+    "old_identifier_name": "formatMessagesForAPI",
+    "new_identifier_name": "formatMessagesForAPI",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "c210bcb8b8f56dcc0fcddf3ec3b705fba4e12904d7466739c26572301c006955",
+    "original_checksum": "c210bcb8b8f56dcc0fcddf3ec3b705fba4e12904d7466739c26572301c006955"
+  },
+  "scan_for_vitals_device.dart": {
+    "old_identifier_name": "scanForVitalsDevice",
+    "new_identifier_name": "scanForVitalsDevice",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "b415e26db9b060336fe1d00a91bea6a04551a30be0d6551f3496b018f92b2ab0",
+    "original_checksum": "b415e26db9b060336fe1d00a91bea6a04551a30be0d6551f3496b018f92b2ab0"
+  },
+  "connect_to_vitals_device.dart": {
+    "old_identifier_name": "connectToVitalsDevice",
+    "new_identifier_name": "connectToVitalsDevice",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "8797d29cae24bbfd2b31b7603c6a8b7cbb1cb62fbee5fafb95e7fc48ab24606b",
+    "original_checksum": "8797d29cae24bbfd2b31b7603c6a8b7cbb1cb62fbee5fafb95e7fc48ab24606b"
+  },
+  "get_vitals_data.dart": {
+    "old_identifier_name": "getVitalsData",
+    "new_identifier_name": "getVitalsData",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "c9481bf00e7a2a09285adddb07ee027ba3ad92b77c23666ec987dd0f6b392877",
+    "original_checksum": "c9481bf00e7a2a09285adddb07ee027ba3ad92b77c23666ec987dd0f6b392877"
+  },
+  "get_current_vitals_r_e_s_t.dart": {
+    "old_identifier_name": "getCurrentVitalsREST",
+    "new_identifier_name": "getCurrentVitalsREST",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "97afc1c3f0d314f4ffa489f27876cdb1aa736adc7cc2645f8dcc557c2758199c",
+    "original_checksum": "97afc1c3f0d314f4ffa489f27876cdb1aa736adc7cc2645f8dcc557c2758199c"
+  },
+  "start_vitals_monitoring_r_e_s_t.dart": {
+    "old_identifier_name": "startVitalsMonitoringREST",
+    "new_identifier_name": "startVitalsMonitoringREST",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "4ae26c6b62c6a21a6ea78da9b4594fe315d75a180f91906289388003200f0e75",
+    "original_checksum": "4ae26c6b62c6a21a6ea78da9b4594fe315d75a180f91906289388003200f0e75"
+  },
+  "stop_vitals_monitoring_r_e_s_t.dart": {
+    "old_identifier_name": "stopVitalsMonitoringREST",
+    "new_identifier_name": "stopVitalsMonitoringREST",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "a5dc4080ece96957e3de13519b6bba7a06496332a837a891a3173f4b599ffc9c",
+    "original_checksum": "a5dc4080ece96957e3de13519b6bba7a06496332a837a891a3173f4b599ffc9c"
+  },
+  "get_vitals_history_r_e_s_t.dart": {
+    "old_identifier_name": "getVitalsHistoryREST",
+    "new_identifier_name": "getVitalsHistoryREST",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "ba9ee08155724e5753fd3b6efdd48d32687c0fdf2c1f117ecf2277d856061563",
+    "original_checksum": "ba9ee08155724e5753fd3b6efdd48d32687c0fdf2c1f117ecf2277d856061563"
+  },
+  "get_emergency_alerts_r_e_s_t.dart": {
+    "old_identifier_name": "getEmergencyAlertsREST",
+    "new_identifier_name": "getEmergencyAlertsREST",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "ee1176613737a61e6c178bf31fde21bd2daa63815e2494256eae2284a5794271",
+    "original_checksum": "ee1176613737a61e6c178bf31fde21bd2daa63815e2494256eae2284a5794271"
+  },
+  "check_vitals_monitoring_status.dart": {
+    "old_identifier_name": "checkVitalsMonitoringStatus",
+    "new_identifier_name": "checkVitalsMonitoringStatus",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "04d18ced480cfa204d9fb5864f6b9dffe9992b8025ce0cee3d850c36dd7b084a",
+    "original_checksum": "04d18ced480cfa204d9fb5864f6b9dffe9992b8025ce0cee3d850c36dd7b084a"
+  },
+  "save_profile_data.dart": {
+    "old_identifier_name": "saveProfileData",
+    "new_identifier_name": "saveProfileData",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "451ae749f022d8d1748fe222365d9cb2fe2020caeb0a7f08259d425d15069caf",
+    "original_checksum": "451ae749f022d8d1748fe222365d9cb2fe2020caeb0a7f08259d425d15069caf"
+  },
+  "save_medical_data.dart": {
+    "old_identifier_name": "saveMedicalData",
+    "new_identifier_name": "saveMedicalData",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "872465377c1d4ae03d08ea5d6537f76bff3f50b43b784bb65682982a59344165",
+    "original_checksum": "872465377c1d4ae03d08ea5d6537f76bff3f50b43b784bb65682982a59344165"
+  },
+  "save_emergency_contacts.dart": {
+    "old_identifier_name": "saveEmergencyContacts",
+    "new_identifier_name": "saveEmergencyContacts",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "ff98353e8bac377a1ce03296445e70fbdc4002b4d8aa84cc3fd7c351ca3ee7ae",
+    "original_checksum": "ff98353e8bac377a1ce03296445e70fbdc4002b4d8aa84cc3fd7c351ca3ee7ae"
+  },
+  "assign_doctor_to_patient.dart": {
+    "old_identifier_name": "assignDoctorToPatient",
+    "new_identifier_name": "assignDoctorToPatient",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "7acce37996599e82e0007dbc8f0091ac6611af5fbea83a51701acd133f501192",
+    "original_checksum": "7acce37996599e82e0007dbc8f0091ac6611af5fbea83a51701acd133f501192"
+  },
+  "get_doctor_info.dart": {
+    "old_identifier_name": "getDoctorInfo",
+    "new_identifier_name": "getDoctorInfo",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "8a76b38c7fc3673fb7f383e6417b6dfb28f8ee4c4632bdac6749f0e45e84d63b",
+    "original_checksum": "8a76b38c7fc3673fb7f383e6417b6dfb28f8ee4c4632bdac6749f0e45e84d63b"
+  },
+  "update_patient_profile.dart": {
+    "old_identifier_name": "updatePatientProfile",
+    "new_identifier_name": "updatePatientProfile",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "c4ddf87990bcfe4c16ec102e9bc2b67fc8086c2b1b974db934f468fe060d4d38",
+    "original_checksum": "c4ddf87990bcfe4c16ec102e9bc2b67fc8086c2b1b974db934f468fe060d4d38"
+  },
+  "load_patient_profile.dart": {
+    "old_identifier_name": "loadPatientProfile",
+    "new_identifier_name": "loadPatientProfile",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "c86eca6be9154fcee45c20d3fdad4d72af55e2208b70d183803beb8b1df46efa",
+    "original_checksum": "c86eca6be9154fcee45c20d3fdad4d72af55e2208b70d183803beb8b1df46efa"
+  },
+  "perform_logout.dart": {
+    "old_identifier_name": "performLogout",
+    "new_identifier_name": "performLogout",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "025e5bf27501cf82aa786ba4c724f89bc78dec55bb64a1ab2eb521abcbad8752",
+    "original_checksum": "025e5bf27501cf82aa786ba4c724f89bc78dec55bb64a1ab2eb521abcbad8752"
+  },
+  "create_chat_message_action.dart": {
+    "old_identifier_name": "createChatMessageAction",
+    "new_identifier_name": "createChatMessageAction",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "96d78c3b5fbfe31eb781c9347f7667079c30147c94c21312e8b9a4465e3ad092",
+    "original_checksum": "96d78c3b5fbfe31eb781c9347f7667079c30147c94c21312e8b9a4465e3ad092"
+  },
+  "generate_thread_id.dart": {
+    "old_identifier_name": "generateThreadId",
+    "new_identifier_name": "generateThreadId",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "b7c5d44ad34617e666ce7a8e7f43c18536e810f02e10fc033cf6bb26d663c3d9",
+    "original_checksum": "b7c5d44ad34617e666ce7a8e7f43c18536e810f02e10fc033cf6bb26d663c3d9"
+  },
+  "get_current_vitals_for_message.dart": {
+    "old_identifier_name": "getCurrentVitalsForMessage",
+    "new_identifier_name": "getCurrentVitalsForMessage",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "477487d88e52039f920bcf91f4a3b21151183adda61e59e604dfdd7b77f2d567",
+    "original_checksum": "477487d88e52039f920bcf91f4a3b21151183adda61e59e604dfdd7b77f2d567"
+  },
+  "save_message_to_firebase.dart": {
+    "old_identifier_name": "saveMessageToFirebase",
+    "new_identifier_name": "saveMessageToFirebase",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "86ec821400079f81b6a66892166bda2fc91738dd9bd1a5f984f9aa3840f5bf9c",
+    "original_checksum": "86ec821400079f81b6a66892166bda2fc91738dd9bd1a5f984f9aa3840f5bf9c"
+  },
+  "process_loaded_messages.dart": {
+    "old_identifier_name": "processLoadedMessages",
+    "new_identifier_name": "processLoadedMessages",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "676f685c545128ef89ec088245d8e81aee5b90a326d89cac07a52693ecd049d8",
+    "original_checksum": "676f685c545128ef89ec088245d8e81aee5b90a326d89cac07a52693ecd049d8"
+  },
+  "check_for_new_doctor_responses.dart": {
+    "old_identifier_name": "checkForNewDoctorResponses",
+    "new_identifier_name": "checkForNewDoctorResponses",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "f0c187a1bdacc0f7c57d0531315cd736bc66e5569c637b138042a6cea50403b6",
+    "original_checksum": "f0c187a1bdacc0f7c57d0531315cd736bc66e5569c637b138042a6cea50403b6"
+  },
+  "load_new_doctor_responses.dart": {
+    "old_identifier_name": "loadNewDoctorResponses",
+    "new_identifier_name": "loadNewDoctorResponses",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "739a18300e8156aa57414eaf8b40d66454df8fb6f0eb45233a3490e7f2e047ac",
+    "original_checksum": "739a18300e8156aa57414eaf8b40d66454df8fb6f0eb45233a3490e7f2e047ac"
+  },
+  "notify_doctor_of_new_message.dart": {
+    "old_identifier_name": "notifyDoctorOfNewMessage",
+    "new_identifier_name": "notifyDoctorOfNewMessage",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "fcec6be848a1c34a5831e1f707f957b782e42eac6f3929ee7a1e430c82fe3ea4",
+    "original_checksum": "fcec6be848a1c34a5831e1f707f957b782e42eac6f3929ee7a1e430c82fe3ea4"
+  },
+  "normalize_phone_key2.dart": {
+    "old_identifier_name": "normalizePhoneKey2",
+    "new_identifier_name": "normalizePhoneKey2",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "2a59556c8b9da29103c5d38740f97677a8758d75f48cd96704ccdcbdd1ed5d36",
+    "original_checksum": "2a59556c8b9da29103c5d38740f97677a8758d75f48cd96704ccdcbdd1ed5d36"
+  },
+  "build_messages_for_u_i.dart": {
+    "old_identifier_name": "buildMessagesForUI",
+    "new_identifier_name": "buildMessagesForUI",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "2f85e00d5f835f50afc45b8cbfda5d036b2330b4b17883f9837720026c729060",
+    "original_checksum": "2f85e00d5f835f50afc45b8cbfda5d036b2330b4b17883f9837720026c729060"
+  },
+  "parse_json_to_list.dart": {
+    "old_identifier_name": "parseJsonToList",
+    "new_identifier_name": "parseJsonToList",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "ee6b15e2724ee717442d3851751505eb906d6d9040aaee727f9391a964e8d7e3",
+    "original_checksum": "ee6b15e2724ee717442d3851751505eb906d6d9040aaee727f9391a964e8d7e3"
+  },
+  "normalize_patient_id.dart": {
+    "old_identifier_name": "normalizePatientId",
+    "new_identifier_name": "normalizePatientId",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "474c2c2e7f7855ed93608a04675ab8cb232dfb0f53b1260b609d0efbdca79335",
+    "original_checksum": "474c2c2e7f7855ed93608a04675ab8cb232dfb0f53b1260b609d0efbdca79335"
+  },
+  "build_thread_id_act.dart": {
+    "old_identifier_name": "buildThreadIdAct",
+    "new_identifier_name": "buildThreadIdAct",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "8fbaa5483019a81c9ad98f7de80cd2257484c01862b1c8c24df8aad8849c67e3",
+    "original_checksum": "8fbaa5483019a81c9ad98f7de80cd2257484c01862b1c8c24df8aad8849c67e3"
+  },
+  "fetch_current_risk_score.dart": {
+    "old_identifier_name": "fetchCurrentRiskScore",
+    "new_identifier_name": "fetchCurrentRiskScore",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "f96ab0a493b63189924f9dd4ceb6d2882f04a454333a7e2492805119878a34bd",
+    "original_checksum": "f96ab0a493b63189924f9dd4ceb6d2882f04a454333a7e2492805119878a34bd"
+  },
+  "custom_functions.dart": {
+    "old_identifier_name": "CustomFunctions",
+    "new_identifier_name": "CustomFunctions",
+    "type": "F",
+    "is_deleted": false,
+    "current_checksum": "12bf802c83ad7571e6a4723459b1905e344d1a4b9d12c8ae93149b5550eb420d",
+    "original_checksum": "12bf802c83ad7571e6a4723459b1905e344d1a4b9d12c8ae93149b5550eb420d"
+  },
+  "pubspec.yaml": {
+    "old_identifier_name": "pubspec.yaml",
+    "new_identifier_name": "pubspec.yaml",
+    "type": "D",
+    "is_deleted": false,
+    "current_checksum": "18b820978e3876da2dc1f59d300c22de80721dcf42f1910dec20ba2c06738c61",
+    "original_checksum": "18b820978e3876da2dc1f59d300c22de80721dcf42f1910dec20ba2c06738c61"
+  }
+}

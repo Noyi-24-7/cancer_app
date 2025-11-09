@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "644612001767",
+    "firebase_url": "https://preggos-dea93-default-rtdb.firebaseio.com",
+    "project_id": "preggos-dea93",
+    "storage_bucket": "preggos-dea93.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644612001767:android:069262c12bee9b4c803742",
+        "android_client_info": {
+          "package_name": "com.mycompany.pregnancyvoiceassistant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfCzywWQtTabeESaqD94ph3RuWJjXhhf4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
