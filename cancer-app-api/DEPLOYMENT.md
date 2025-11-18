@@ -93,7 +93,7 @@ The API will be available at `http://localhost:3000/api/process-audio`
 
 Use curl or Postman to test:
 
-```bash
+```bash\
 curl -X POST http://localhost:3000/api/process-audio \
   -H "Content-Type: application/json" \
   -d '{
