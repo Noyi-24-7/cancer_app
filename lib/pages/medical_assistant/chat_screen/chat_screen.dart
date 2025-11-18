@@ -132,7 +132,7 @@ class _ChatScreenWidgetState extends State<ChatScreenWidget> {
                       addToMessages(ChatMessageStruct(
                         text: getJsonField(
                           (apiResponse?.jsonBody ?? ''),
-                          r'''$.result.transcribedText''',
+                          r'''$.transcribedText''',
                         ).toString(),
                         audioUrl: '\"\"',
                         isUser: true,
@@ -142,11 +142,11 @@ class _ChatScreenWidgetState extends State<ChatScreenWidget> {
                       addToMessages(ChatMessageStruct(
                         text: getJsonField(
                           (apiResponse?.jsonBody ?? ''),
-                          r'''$.result.translatedText''',
+                          r'''$.translatedText''',
                         ).toString(),
                         audioUrl: getJsonField(
                           (apiResponse?.jsonBody ?? ''),
-                          r'''$.result.audioUrl.publicUrl''',
+                          r'''$.audioUrl''',
                         ).toString(),
                         isUser: false,
                         timestamp: getCurrentTimestamp,

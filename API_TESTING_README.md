@@ -41,13 +41,12 @@ The app expects the API to return JSON in this exact structure:
 
 ```json
 {
-  "result": {
-    "transcribedText": "What the user said",
-    "translatedText": "AI assistant response",
-    "audioUrl": {
-      "publicUrl": "https://storage.example.com/audio/response.mp3"
-    }
-  }
+  "success": true,
+  "transcribedText": "What the user said",
+  "translatedText": "AI assistant response",
+  "audioUrl": "https://storage.example.com/audio/response.m4a",
+  "sourceLanguage": "en",
+  "error": null
 }
 ```
 
@@ -55,38 +54,20 @@ The app expects the API to return JSON in this exact structure:
 
 The Flutter app uses these JSON paths:
 
-1. **User's transcribed text**: `$.result.transcribedText`
-2. **AI response text**: `$.result.translatedText`
-3. **Audio URL**: `$.result.audioUrl.publicUrl` ⚠️ **This is critical!**
+1. **User's transcribed text**: `$.transcribedText`
+2. **AI response text**: `$.translatedText`
+3. **Audio URL**: `$.audioUrl` ⚠️ **This is critical!**
 
 ## Common Issues
 
-### Issue 1: Audio URL Format
-❌ **Wrong format** (will cause empty audio player):
-```json
-{
-  "result": {
-    "audioUrl": "https://audio-url.mp3"
-  }
-}
-```
-
-✅ **Correct format**:
-```json
-{
-  "result": {
-    "audioUrl": {
-      "publicUrl": "https://audio-url.mp3"
-    }
-  }
-}
-```
-
-### Issue 2: Missing Fields
+### Issue 1: Missing Fields
 If any of these fields are missing, the app won't work correctly:
-- `result.transcribedText` - User won't see what they said
-- `result.translatedText` - AI response text won't show
-- `result.audioUrl.publicUrl` - **Audio player will be empty** 🚨
+- `transcribedText` - User won't see what they said
+- `translatedText` - AI response text won't show
+- `audioUrl` - **Audio player will be empty** 🚨
+
+### Issue 2: Invalid Audio URL
+The `audioUrl` must be a valid, publicly accessible audio file URL (typically .m4a format)
 
 ### Issue 3: API Endpoint Not Responding
 If the API is down or not configured, you'll get:
@@ -94,42 +75,42 @@ If the API is down or not configured, you'll get:
 - 404 Not Found
 - 500 Server Error
 
-## How to Fix
-
-### If the API returns the wrong format:
-You need to update either:
-
-**Option A**: Fix the API to return the correct format
-- Update the API at `https://cancer-app-api.vercel.app/api/process-audio`
-- Ensure it returns `audioUrl` as an object with `publicUrl` field
-
-**Option B**: Update the Flutter app to match the API's format
-- Modify `lib/pages/medical_assistant/chat_screen/chat_screen.dart`
-- Change the JSON path from `$.result.audioUrl.publicUrl` to match your API
-
 ## Code Location
 
-The audio URL extraction happens here:
+The response data extraction happens here:
 
 **File**: `lib/pages/medical_assistant/chat_screen/chat_screen.dart`
 
-**Lines 147-150**:
+**Lines 133-150** (approximate):
 ```dart
+// User's transcribed text
+text: getJsonField(
+  (apiResponse?.jsonBody ?? ''),
+  r'''$.transcribedText''',
+).toString(),
+
+// AI response text
+text: getJsonField(
+  (apiResponse?.jsonBody ?? ''),
+  r'''$.translatedText''',
+).toString(),
+
+// Audio URL
 audioUrl: getJsonField(
   (apiResponse?.jsonBody ?? ''),
-  r'''$.result.audioUrl.publicUrl''',
+  r'''$.audioUrl''',
 ).toString(),
 ```
 
 ## Testing Checklist
 
-- [ ] API endpoint is accessible (returns 200 status)
-- [ ] Response contains `result` object
-- [ ] Response contains `result.transcribedText`
-- [ ] Response contains `result.translatedText`
-- [ ] Response contains `result.audioUrl.publicUrl` (not just `result.audioUrl`)
-- [ ] The `publicUrl` is a valid audio file URL (mp3, wav, etc.)
-- [ ] The audio file at `publicUrl` is accessible and playable
+- [x] API endpoint is accessible (returns 200 status) ✅
+- [x] Response contains `success` field ✅
+- [x] Response contains `transcribedText` ✅
+- [x] Response contains `translatedText` ✅
+- [x] Response contains `audioUrl` as a direct string ✅
+- [x] The `audioUrl` is a valid audio file URL (.m4a format) ✅
+- [ ] The audio file at the URL is accessible and playable (test in browser)
 
 ## Next Steps
 

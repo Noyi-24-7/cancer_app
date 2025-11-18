@@ -43,34 +43,27 @@ if [ "$HTTP_STATUS" = "200" ]; then
     echo "🔍 Checking for required fields:"
     
     # Check for transcribedText
-    if echo "$BODY" | jq -e '.result.transcribedText' > /dev/null 2>&1; then
-        TRANSCRIBED=$(echo "$BODY" | jq -r '.result.transcribedText')
+    if echo "$BODY" | jq -e '.transcribedText' > /dev/null 2>&1; then
+        TRANSCRIBED=$(echo "$BODY" | jq -r '.transcribedText')
         echo "  ✅ transcribedText: $TRANSCRIBED"
     else
         echo "  ❌ transcribedText field missing"
     fi
     
     # Check for translatedText
-    if echo "$BODY" | jq -e '.result.translatedText' > /dev/null 2>&1; then
-        TRANSLATED=$(echo "$BODY" | jq -r '.result.translatedText')
+    if echo "$BODY" | jq -e '.translatedText' > /dev/null 2>&1; then
+        TRANSLATED=$(echo "$BODY" | jq -r '.translatedText')
         echo "  ✅ translatedText: $TRANSLATED"
     else
         echo "  ❌ translatedText field missing"
     fi
     
-    # Check for audioUrl.publicUrl
-    if echo "$BODY" | jq -e '.result.audioUrl.publicUrl' > /dev/null 2>&1; then
-        AUDIO_URL=$(echo "$BODY" | jq -r '.result.audioUrl.publicUrl')
-        echo "  ✅ audioUrl.publicUrl: $AUDIO_URL"
+    # Check for audioUrl (as direct string)
+    if echo "$BODY" | jq -e '.audioUrl' > /dev/null 2>&1; then
+        AUDIO_URL=$(echo "$BODY" | jq -r '.audioUrl')
+        echo "  ✅ audioUrl: $AUDIO_URL"
     else
-        echo "  ❌ audioUrl.publicUrl field missing"
-        # Check if audioUrl exists as a string instead
-        if echo "$BODY" | jq -e '.result.audioUrl' > /dev/null 2>&1; then
-            AUDIO_URL=$(echo "$BODY" | jq -r '.result.audioUrl')
-            echo "  ⚠️  audioUrl exists but not in expected format: $AUDIO_URL"
-            echo "     Expected: {\"publicUrl\": \"url\"}"
-            echo "     Got: \"$AUDIO_URL\""
-        fi
+        echo "  ❌ audioUrl field missing"
     fi
 else
     echo "❌ Request failed!"
@@ -83,13 +76,12 @@ echo "========================================"
 echo "Expected Response Format:"
 echo '
 {
-  "result": {
-    "transcribedText": "user question",
-    "translatedText": "AI response",
-    "audioUrl": {
-      "publicUrl": "https://audio-url.mp3"
-    }
-  }
+  "success": true,
+  "transcribedText": "user question",
+  "translatedText": "AI response",
+  "audioUrl": "https://audio-url.m4a",
+  "sourceLanguage": "en",
+  "error": null
 }
 '
 echo "========================================"
