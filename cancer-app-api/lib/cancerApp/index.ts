@@ -54,7 +54,7 @@ export default async function execute(inputs: any, root: any) {
 
     setResult(root, await executeScript(NODES.uploadSynthesizedAudioToStorage, { "base64": root[NODES.synthesizeSpeechWithSpitch]["audioBase64"], "fileName": await parseExpression(root, "`voice-translations/output/translation-${Date.now()}.m4a`") }, root, {}), [NODES.uploadSynthesizedAudioToStorage]);
 
-    setResult(root, await executeScript(NODES.buildOutputJson, { "medicalResponse": root[NODES.translateResponseBackToUserLanguage]["translatedText"], "translatedText": root["a2ca7e6a-459f-4fa9-88aa-9452b495fcad"]["finalText"], "transcribedText": root[NODES.transcribeAudioWithSpitch]["transcribedText"], "audioUrl": root[NODES.uploadSynthesizedAudioToStorage]["publicUrl"], "sourceLanguage": root["inputs"]["sourceLanguage"] }, root, {}), [NODES.buildOutputJson]);
+    setResult(root, await executeScript(NODES.buildOutputJson, { "medicalResponse": root[NODES.translateResponseBackToUserLanguage]["translatedText"], "translatedText": root[NODES.translateResponseBackToUserLanguage]["translatedText"], "transcribedText": root[NODES.transcribeAudioWithSpitch]["transcribedText"], "audioUrl": root[NODES.uploadSynthesizedAudioToStorage]["publicUrl"], "sourceLanguage": root["inputs"]["sourceLanguage"] }, root, {}), [NODES.buildOutputJson]);
 
     setResult(root, {
         "result": await parseExpression(root, "({\n  translatedText: ctx?.[\"root\"]?.[\"926cd33f-5c23-400b-afd7-898c3ec80c45\"]?.[\"translatedText\"],\n  audioUrl: ctx?.[\"root\"]?.[\"5a085e0a-807a-49b2-804f-99feba62dd86\"],\n  error: ctx?.[\"root\"]?.[\"c501951c-0d3f-4e37-9480-6770735f2be3\"]?.[\"error\"]\n})")
