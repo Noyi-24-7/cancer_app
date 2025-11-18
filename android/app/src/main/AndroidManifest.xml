@@ -6,7 +6,7 @@
 
 
     <application
-        android:label="Preggos"
+        android:label="CancerCare"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
