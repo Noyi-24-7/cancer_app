@@ -9,7 +9,6 @@ import 'lat_lng.dart';
 import 'place.dart';
 import 'uploaded_file.dart';
 import '/backend/schema/structs/index.dart';
-import '/auth/firebase_auth/auth_util.dart';
 
 dynamic generateMockVitals(String? vitalType) {
   final random = math.Random(); // Changed from Random() to math.Random()
