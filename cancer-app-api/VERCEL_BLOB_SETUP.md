@@ -20,7 +20,7 @@ Your `.env.local` file is already set up with:
 ```env
 SPITCH_API_KEY=sk_rK4cVeU8LfNHZMID6py7cRIDTWFg8x85GY3ab0FG
 GEMMA_API_KEY=AIzaSyDTK7HZCCdb_oex2Sc7g8zZysZlI6shJCY
-ZAMZAR_API_KEY=3e3883191f7fec54040c031eaed3bbe9bcfe748d
+ZAMZAR_API_KEY=a5c9535c2829d011d3e9488efea6f933e5ade0c8
 ```
 
 ### 2. Test Locally (Optional)
@@ -66,7 +66,7 @@ Add these for **Production**, **Preview**, and **Development**:
 
 1. `SPITCH_API_KEY` = `sk_rK4cVeU8LfNHZMID6py7cRIDTWFg8x85GY3ab0FG`
 2. `GEMMA_API_KEY` = `AIzaSyDTK7HZCCdb_oex2Sc7g8zZysZlI6shJCY`
-3. `ZAMZAR_API_KEY` = `3e3883191f7fec54040c031eaed3bbe9bcfe748d`
+3. `ZAMZAR_API_KEY` = `a5c9535c2829d011d3e9488efea6f933e5ade0c8`
 
 **Note**: `BLOB_READ_WRITE_TOKEN` is automatically set by Vercel - you don't need to add it!
 

@@ -37,7 +37,7 @@ This will now deploy successfully!
 |----------|-------|
 | `SPITCH_API_KEY` | `sk_rK4cVeU8LfNHZMID6py7cRIDTWFg8x85GY3ab0FG` |
 | `GEMMA_API_KEY` | `AIzaSyDTK7HZCCdb_oex2Sc7g8zZysZlI6shJCY` |
-| `ZAMZAR_API_KEY` | `3e3883191f7fec54040c031eaed3bbe9bcfe748d` |
+| `ZAMZAR_API_KEY` | `a5c9535c2829d011d3e9488efea6f933e5ade0c8` |
 
 5. Then deploy to production:
 ```bash

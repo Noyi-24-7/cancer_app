@@ -39,7 +39,7 @@ This will:
 
    **Variable 3:**
    - Name: `ZAMZAR_API_KEY`
-   - Value: `3e3883191f7fec54040c031eaed3bbe9bcfe748d`
+   - Value: `a5c9535c2829d011d3e9488efea6f933e5ade0c8`
    - Environments: ✅ Production ✅ Preview ✅ Development
 
 5. **Click "Save"** for each one
