@@ -18,32 +18,11 @@ class HomeScreenWidget extends StatefulWidget {
 }
 
 class _HomeScreenWidgetState extends State<HomeScreenWidget> {
-  bool? _loadPatientProfile;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _loadPatientProfile = await actions.loadPatientProfile();
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              _loadPatientProfile == true ? 'Success' : 'Failed',
-              style: FlutterFlowTheme.of(context).bodyLarge.override(
-                    fontFamily: 'Gilroy',
-                    color: FlutterFlowTheme.of(context).primaryText,
-                    letterSpacing: 0.0,
-                  ),
-            ),
-            duration: const Duration(milliseconds: 4000),
-            backgroundColor:
-                FlutterFlowTheme.of(context).micContainerBackground,
-          ),
-        );
-      }
-    });
   }
 
   @override
