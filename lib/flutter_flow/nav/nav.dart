@@ -83,14 +83,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : WelcomeScreenWidget(),
+      errorBuilder: (context, state) => HomeScreenWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : WelcomeScreenWidget(),
+          builder: (context, _) => HomeScreenWidget(),
         ),
         FFRoute(
           name: TranslationScreenWidget.routeName,
@@ -110,88 +108,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: HomeScreenWidget.routeName,
           path: HomeScreenWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'HomeScreen')
-              : HomeScreenWidget(),
+          builder: (context, params) => HomeScreenWidget(),
         ),
-        FFRoute(
-          name: EducationalContentHomeWidget.routeName,
-          path: EducationalContentHomeWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'EducationalContentHome')
-              : EducationalContentHomeWidget(),
-        ),
-        FFRoute(
-          name: ArticleDetailScreenWidget.routeName,
-          path: ArticleDetailScreenWidget.routePath,
-          builder: (context, params) => ArticleDetailScreenWidget(
-            article: params.getParam(
-              'article',
-              ParamType.DataStruct,
-              isList: false,
-              structBuilder: EducationalArticleStruct.fromSerializableMap,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: VitalsMonitorScreenWidget.routeName,
-          path: VitalsMonitorScreenWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'VitalsMonitorScreen')
-              : VitalsMonitorScreenWidget(),
-        ),
-        FFRoute(
-          name: WelcomeScreenWidget.routeName,
-          path: WelcomeScreenWidget.routePath,
-          builder: (context, params) => WelcomeScreenWidget(),
-        ),
-        FFRoute(
-          name: PhoneAuthScreenWidget.routeName,
-          path: PhoneAuthScreenWidget.routePath,
-          builder: (context, params) => PhoneAuthScreenWidget(),
-        ),
-        FFRoute(
-          name: PhoneVerifyScreenWidget.routeName,
-          path: PhoneVerifyScreenWidget.routePath,
-          builder: (context, params) => PhoneVerifyScreenWidget(),
-        ),
-        FFRoute(
-          name: RegistrationScreenWidget.routeName,
-          path: RegistrationScreenWidget.routePath,
-          builder: (context, params) => RegistrationScreenWidget(),
-        ),
-        FFRoute(
-          name: MedicalHistoryScreenWidget.routeName,
-          path: MedicalHistoryScreenWidget.routePath,
-          builder: (context, params) => MedicalHistoryScreenWidget(),
-        ),
-        FFRoute(
-          name: EmergencyContactsScreenWidget.routeName,
-          path: EmergencyContactsScreenWidget.routePath,
-          builder: (context, params) => EmergencyContactsScreenWidget(),
-        ),
-        FFRoute(
-          name: RegistrationCompleteScreenWidget.routeName,
-          path: RegistrationCompleteScreenWidget.routePath,
-          builder: (context, params) => RegistrationCompleteScreenWidget(),
-        ),
-        FFRoute(
-          name: ProfileScreenWidget.routeName,
-          path: ProfileScreenWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'ProfileScreen')
-              : ProfileScreenWidget(),
-        ),
-        FFRoute(
-          name: EditProfileScreenWidget.routeName,
-          path: EditProfileScreenWidget.routePath,
-          builder: (context, params) => EditProfileScreenWidget(),
-        ),
-        FFRoute(
-          name: DoctorPatientChatWidget.routeName,
-          path: DoctorPatientChatWidget.routePath,
-          builder: (context, params) => DoctorPatientChatWidget(),
-        )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
     );

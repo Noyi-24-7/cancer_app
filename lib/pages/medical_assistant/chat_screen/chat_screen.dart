@@ -121,7 +121,7 @@ class _ChatScreenWidgetState extends State<ChatScreenWidget> {
                     currentHistory = await actions.formatMessagesForAPI(
                       messages.toList(),
                     );
-                    apiResponse = await PregnancyAssistantCall.call(
+                    apiResponse = await CancerAssistantCall.call(
                       audioFile: audioBase64!,
                       sourceLanguage: FFAppState().selectedLanguage,
                       targetLanguage: FFAppState().selectedLanguage,
