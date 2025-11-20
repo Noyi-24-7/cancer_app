@@ -80,9 +80,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ArticleDetailScreenWidget.routeName,
           path: ArticleDetailScreenWidget.routePath,
           builder: (context, params) => ArticleDetailScreenWidget(
-            article: params.getParam<EducationalArticleStruct>(
+            article: params.getParam(
               'article',
               ParamType.DataStruct,
+              isList: false,
+              structBuilder: EducationalArticleStruct.fromSerializableMap,
             ),
           ),
         ),
