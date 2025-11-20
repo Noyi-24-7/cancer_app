@@ -52,6 +52,7 @@ class _ArticleDetailScreenWidgetState
   @override
   void initState() {
     super.initState();
+    languageDropdownValueController = FormFieldController<String>(null);
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       translatedContent = widget.article?.content;
       translatedTitle = valueOrDefault<String>(
@@ -62,6 +63,12 @@ class _ArticleDetailScreenWidgetState
         setState(() {});
       }
     });
+  }
+
+  @override
+  void dispose() {
+    languageDropdownValueController?.dispose();
+    super.dispose();
   }
 
   @override
