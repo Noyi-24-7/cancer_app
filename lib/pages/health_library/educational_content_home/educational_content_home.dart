@@ -77,6 +77,7 @@ class _EducationalContentHomeWidgetState
               children: [
                 const _HeaderSection(),
                 _TopicsSection(
+                  selectedCategory: selectedCategory,
                   onCategorySelected: (category) async {
                     setState(() {
                       isLoading = true;
@@ -181,10 +182,12 @@ class _HeaderSection extends StatelessWidget {
 
 class _TopicsSection extends StatelessWidget {
   const _TopicsSection({
+    required this.selectedCategory,
     required this.onCategorySelected,
     required this.onCategoryDoubleTapped,
   });
 
+  final String selectedCategory;
   final ValueChanged<String> onCategorySelected;
   final ValueChanged<String> onCategoryDoubleTapped;
 
@@ -234,6 +237,7 @@ class _TopicsSection extends StatelessWidget {
                     title: 'Detection & Signs',
                     subtitle: 'Early warning signs',
                     color: const Color(0xFFE8B4CB),
+                    isActive: selectedCategory == 'detection',
                     onTap: () => onCategorySelected('detection'),
                     onDoubleTap: () => onCategoryDoubleTapped('detection'),
                   ),
@@ -241,6 +245,7 @@ class _TopicsSection extends StatelessWidget {
                     title: 'Treatment',
                     subtitle: 'Management options',
                     color: const Color(0xFFB8D8E0),
+                    isActive: selectedCategory == 'treatment',
                     onTap: () => onCategorySelected('treatment'),
                     onDoubleTap: () => onCategoryDoubleTapped('treatment'),
                   ),
@@ -248,6 +253,7 @@ class _TopicsSection extends StatelessWidget {
                     title: 'Support & Care',
                     subtitle: 'Living with cancer',
                     color: const Color(0xFFE8D5B7),
+                    isActive: selectedCategory == 'support',
                     onTap: () => onCategorySelected('support'),
                     onDoubleTap: () => onCategoryDoubleTapped('support'),
                   ),
@@ -266,6 +272,7 @@ class _CategoryCard extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.color,
+    required this.isActive,
     required this.onTap,
     required this.onDoubleTap,
   });
@@ -273,6 +280,7 @@ class _CategoryCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final Color color;
+  final bool isActive;
   final VoidCallback onTap;
   final VoidCallback onDoubleTap;
 
@@ -291,6 +299,12 @@ class _CategoryCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(16.0),
+          border: isActive
+              ? Border.all(
+                  color: const Color(0xFF3A6BF4),
+                  width: 4.0,
+                )
+              : null,
         ),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
