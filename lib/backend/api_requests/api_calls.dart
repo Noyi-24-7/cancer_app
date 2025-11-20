@@ -170,7 +170,7 @@ class ContentProcessorAPICall {
     return ApiManager.instance.makeApiCall(
       callName: 'ContentProcessorAPI',
       apiUrl:
-          'https://1pz4ke.buildship.run/educational-content-processor-13de7d0d4695',
+          'https://cancer-app-theta.vercel.app/api/process-articles',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
