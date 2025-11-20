@@ -270,14 +270,11 @@ class _ArticleDetailScreenWidgetState
                             ScaffoldMessenger.of(context).hideCurrentSnackBar();
                             if ((audioResponse?.succeeded ?? true)) {
                               extractedAudioUrl = await actions.extractAudioUrl(
-                                getJsonField(
-                                  (audioResponse?.jsonBody ?? ''),
-                                  r'''$.articles[:].audioUrl''',
-                                ),
+                                (audioResponse?.jsonBody ?? ''),
                               );
                               audioUrl = getJsonField(
                                 (audioResponse?.jsonBody ?? ''),
-                                r'''$.articles[:].audioUrl''',
+                                r'''$.result.articles[:].audioUrl''',
                               ).toString();
                               setState(() {
                                 isGeneratingAudio = false;

@@ -10,9 +10,17 @@ import 'package:flutter/material.dart';
 
 String extractAudioUrl(dynamic audioResponse) {
   try {
-    // Check if response has articles
-    if (audioResponse != null && audioResponse['articles'] != null) {
-      final articles = audioResponse['articles'] as List<dynamic>;
+    // Handle Vercel API response structure (nested under 'result')
+    dynamic responseData = audioResponse;
+    
+    // If response has 'result' key, extract it
+    if (audioResponse != null && audioResponse['result'] != null) {
+      responseData = audioResponse['result'];
+    }
+    
+    // Check if responseData has articles
+    if (responseData != null && responseData['articles'] != null) {
+      final articles = responseData['articles'] as List<dynamic>;
 
       if (articles.isNotEmpty) {
         // Get the first article

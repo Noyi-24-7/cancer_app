@@ -12,10 +12,17 @@ Future<dynamic> extractTranslatedData(dynamic translationResponse) async {
   // Add your function code here!
 
   try {
-    // Check if translationResponse has articles
-    if (translationResponse != null &&
-        translationResponse['articles'] != null) {
-      final articles = translationResponse['articles'] as List<dynamic>;
+    // Handle Vercel API response structure (nested under 'result')
+    dynamic responseData = translationResponse;
+    
+    // If response has 'result' key, extract it
+    if (translationResponse != null && translationResponse['result'] != null) {
+      responseData = translationResponse['result'];
+    }
+    
+    // Check if responseData has articles
+    if (responseData != null && responseData['articles'] != null) {
+      final articles = responseData['articles'] as List<dynamic>;
 
       if (articles.isNotEmpty) {
         // Get the first article
