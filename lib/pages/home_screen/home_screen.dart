@@ -105,6 +105,7 @@ class _ContentSection extends StatelessWidget {
             children: [
               _MedicalAssistantCard(),
               _LanguageTranslationCard(),
+              _HealthLibraryCard(),
             ].divide(const SizedBox(height: 16.0)),
           ),
         ),
@@ -236,6 +237,75 @@ class _LanguageTranslationCard extends StatelessWidget {
                   ),
                   Text(
                     'Translate between languages',
+                    style: FlutterFlowTheme.of(context).labelMedium.override(
+                          fontFamily: 'Gilroy',
+                          letterSpacing: 0.0,
+                        ),
+                  ),
+                ].divide(const SizedBox(height: 4.0)),
+              ),
+            ].divide(const SizedBox(width: 12.0)),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _HealthLibraryCard extends StatelessWidget {
+  const _HealthLibraryCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      splashColor: Colors.transparent,
+      focusColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      onTap: () async {
+        context.pushNamed(
+          EducationalContentHomeWidget.routeName,
+          extra: <String, dynamic>{
+            kTransitionInfoKey: TransitionInfo(
+              hasTransition: true,
+              transitionType: PageTransitionType.rightToLeft,
+            ),
+          },
+        );
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: FlutterFlowTheme.of(context).secondaryBackground,
+          borderRadius: BorderRadius.circular(12.0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 24.0,
+                height: 24.0,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFE8B4CB),
+                  borderRadius: BorderRadius.circular(1000.0),
+                ),
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Health Library',
+                    style: FlutterFlowTheme.of(context).titleMedium.override(
+                          fontFamily: 'Gilroy',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          letterSpacing: 0.0,
+                        ),
+                  ),
+                  Text(
+                    'Browse health topics and insights',
                     style: FlutterFlowTheme.of(context).labelMedium.override(
                           fontFamily: 'Gilroy',
                           letterSpacing: 0.0,

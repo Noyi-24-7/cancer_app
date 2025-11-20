@@ -71,6 +71,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: HomeScreenWidget.routePath,
           builder: (context, params) => HomeScreenWidget(),
         ),
+        FFRoute(
+          name: EducationalContentHomeWidget.routeName,
+          path: EducationalContentHomeWidget.routePath,
+          builder: (context, params) => EducationalContentHomeWidget(),
+        ),
+        FFRoute(
+          name: ArticleDetailScreenWidget.routeName,
+          path: ArticleDetailScreenWidget.routePath,
+          builder: (context, params) => ArticleDetailScreenWidget(
+            article: params.getParam<EducationalArticleStruct>(
+              'article',
+              ParamType.DataStruct,
+            ),
+          ),
+        ),
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
     );
