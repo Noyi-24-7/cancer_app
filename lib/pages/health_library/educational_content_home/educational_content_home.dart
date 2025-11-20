@@ -149,7 +149,20 @@ class _HeaderSection extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(width: 60.0, height: 60.0),
+            FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 30.0,
+              ),
+              onPressed: () async {
+                context.pop();
+              },
+            ),
             Text(
               'Health Library',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -159,20 +172,7 @@ class _HeaderSection extends StatelessWidget {
                     letterSpacing: 0.0,
                   ),
             ),
-            FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
-              icon: Icon(
-                Icons.bookmark_border_outlined,
-                color: FlutterFlowTheme.of(context).darkMutedColor,
-                size: 30.0,
-              ),
-              onPressed: () async {
-                context.pop();
-              },
-            ),
+            const SizedBox(width: 60.0, height: 60.0),
           ],
         ),
       ),
