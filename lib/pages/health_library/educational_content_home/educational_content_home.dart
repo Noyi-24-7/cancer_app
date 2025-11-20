@@ -27,17 +27,6 @@ class _EducationalContentHomeWidgetState
   List<dynamic> articles = [];
   bool isLoading = false;
   List<dynamic>? sampleContent;
-  List<dynamic>? filteredArticlespCopy;
-  ApiCallResponse? fetchResponse;
-  String? articlesJsonString;
-  ApiCallResponse? translateResponse;
-  List<dynamic>? fallbackContent;
-  List<dynamic>? filteredArticlesbCopy;
-  ApiCallResponse? fetchResponseCopy;
-  String? articlesJsonStringCopy;
-  ApiCallResponse? translateResponseCopy;
-  List<dynamic>? fallbackContentCopy;
-  List<dynamic>? filteredArticlesn;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void addToArticles(dynamic item) {
@@ -93,271 +82,42 @@ class _EducationalContentHomeWidgetState
                       isLoading = true;
                       selectedCategory = category;
                     });
-                    if (category == 'pregnancy') {
-                      fetchResponse = await ContentFetcherAPICall.call(
-                        topic: 'pregnancy',
-                        category: 'pregnancy',
-                        language: 'en',
-                      );
-
-                      if ((fetchResponse?.succeeded ?? true)) {
-                        if (FFAppState().educationalLanguage != 'en') {
-                          articlesJsonString =
-                              await actions.articlesToJsonString(
-                            getJsonField(
-                              (fetchResponse?.jsonBody ?? ''),
-                              r'''$.articles''',
-                              true,
-                            )!,
-                          );
-                          translateResponse =
-                              await ContentProcessorAPICall.call(
-                            articlesJson: articlesJsonString!,
-                            targetLanguage: FFAppState().educationalLanguage,
-                            action: 'translate_only',
-                            articleId: '\"\"',
-                          );
-
-                          if ((translateResponse?.succeeded ?? true)) {
-                            articles = getJsonField(
-                              (translateResponse?.jsonBody ?? ''),
-                              r'''$.articles''',
-                              true,
-                            )!
-                                .toList()
-                                .cast<dynamic>();
-                            setState(() {
-                              isLoading = false;
-                            });
-                          } else {
-                            articles = getJsonField(
-                              (fetchResponse?.jsonBody ?? ''),
-                              r'''$.articles''',
-                              true,
-                            )!
-                                .toList()
-                                .cast<dynamic>();
-                            setState(() {
-                              isLoading = false;
-                            });
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Translation unavailable, showing English content',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'Gilroy',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                duration: const Duration(milliseconds: 4000),
-                                backgroundColor: FlutterFlowTheme.of(context)
-                                    .micContainerBackground,
-                              ),
-                            );
-                          }
-                        } else {
-                          articles = getJsonField(
-                            (fetchResponse?.jsonBody ?? ''),
-                            r'''$.articles''',
-                            true,
-                          )!
-                              .toList()
-                              .cast<dynamic>();
-                          setState(() {
-                            isLoading = false;
-                          });
-                        }
-                      } else {
-                        setState(() {
-                          isLoading = false;
-                        });
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              'Unable to load content. Please check your connection.',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .override(
-                                    fontFamily: 'Gilroy',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                            duration: const Duration(milliseconds: 2000),
-                            backgroundColor: FlutterFlowTheme.of(context)
-                                .micContainerBackground,
-                          ),
-                        );
-                        fallbackContent =
-                            await actions.getSampleEducationalContent();
-                        articles = fallbackContent!.toList().cast<dynamic>();
-                        if (mounted) {
-                          setState(() {});
-                        }
-                      }
-                    } else if (category == 'birth_control') {
-                      fetchResponseCopy = await ContentFetcherAPICall.call(
-                        topic: 'birth_control',
-                        category: 'birth_control',
-                        language: 'en',
-                      );
-
-                      if ((fetchResponseCopy?.succeeded ?? true)) {
-                        if (FFAppState().educationalLanguage != 'en') {
-                          articlesJsonStringCopy =
-                              await actions.articlesToJsonString(
-                            getJsonField(
-                              (fetchResponseCopy?.jsonBody ?? ''),
-                              r'''$.articles''',
-                              true,
-                            )!,
-                          );
-                          translateResponseCopy =
-                              await ContentProcessorAPICall.call(
-                            articlesJson: articlesJsonStringCopy!,
-                            targetLanguage: FFAppState().educationalLanguage,
-                            action: 'translate_only',
-                            articleId: '\"\"',
-                          );
-
-                          if ((translateResponseCopy?.succeeded ?? true)) {
-                            articles = getJsonField(
-                              (translateResponseCopy?.jsonBody ?? ''),
-                              r'''$.articles''',
-                              true,
-                            )!
-                                .toList()
-                                .cast<dynamic>();
-                            setState(() {
-                              isLoading = false;
-                            });
-                          } else {
-                            articles = getJsonField(
-                              (fetchResponseCopy?.jsonBody ?? ''),
-                              r'''$.articles''',
-                              true,
-                            )!
-                                .toList()
-                                .cast<dynamic>();
-                            setState(() {
-                              isLoading = false;
-                            });
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Translation unavailable, showing English content',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'Gilroy',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                duration: const Duration(milliseconds: 4000),
-                                backgroundColor: FlutterFlowTheme.of(context)
-                                    .micContainerBackground,
-                              ),
-                            );
-                          }
-                        } else {
-                          articles = getJsonField(
-                            (fetchResponseCopy?.jsonBody ?? ''),
-                            r'''$.articles''',
-                            true,
-                          )!
-                              .toList()
-                              .cast<dynamic>();
-                          setState(() {
-                            isLoading = false;
-                          });
-                        }
-                      } else {
-                        setState(() {
-                          isLoading = false;
-                        });
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              'Unable to load content. Please check your connection.',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .override(
-                                    fontFamily: 'Gilroy',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                            duration: const Duration(milliseconds: 2000),
-                            backgroundColor: FlutterFlowTheme.of(context)
-                                .micContainerBackground,
-                          ),
-                        );
-                        fallbackContentCopy =
-                            await actions.getSampleEducationalContent();
-                        articles = fallbackContentCopy!.toList().cast<dynamic>();
-                        if (mounted) {
-                          setState(() {});
-                        }
-                      }
-                    } else if (category == 'nutrition') {
-                      await actions.getSampleEducationalContent();
-                      articles = sampleContent!.toList().cast<dynamic>();
-                      if (mounted) {
-                        setState(() {});
-                      }
-                      setState(() {
-                        selectedCategory = 'nutrition';
-                      });
-                      filteredArticlesn =
-                          await actions.filterContentByCategory(
-                        articles.toList(),
-                        'nutrition',
-                      );
-                      articles = filteredArticlesn!.toList().cast<dynamic>();
-                      if (mounted) {
-                        setState(() {});
-                      }
-                    }
-
-                    if (mounted) {
-                      setState(() {});
-                    }
+                    
+                    // Load sample content
+                    sampleContent = await actions.getSampleEducationalContent();
+                    
+                    // Filter by category
+                    final filteredArticles = await actions.filterContentByCategory(
+                      sampleContent!.toList(),
+                      category,
+                    );
+                    
+                    articles = filteredArticles!.toList().cast<dynamic>();
+                    
+                    setState(() {
+                      isLoading = false;
+                    });
                   },
                   onCategoryDoubleTapped: (category) async {
-                    await actions.getSampleEducationalContent();
-                    articles = sampleContent!.toList().cast<dynamic>();
-                    if (mounted) {
-                      setState(() {});
-                    }
                     setState(() {
+                      isLoading = true;
                       selectedCategory = category;
                     });
-                    if (category == 'pregnancy') {
-                      filteredArticlespCopy =
-                          await actions.filterContentByCategory(
-                        articles.toList(),
-                        'pregnancy',
-                      );
-                      articles = filteredArticlespCopy!.toList().cast<dynamic>();
-                    } else if (category == 'birth_control') {
-                      filteredArticlesbCopy =
-                          await actions.filterContentByCategory(
-                        articles.toList(),
-                        'birth_control',
-                      );
-                      articles = filteredArticlesbCopy!.toList().cast<dynamic>();
-                    }
-                    if (mounted) {
-                      setState(() {});
-                    }
+                    
+                    // Load sample content
+                    sampleContent = await actions.getSampleEducationalContent();
+                    
+                    // Filter by category
+                    final filteredArticles = await actions.filterContentByCategory(
+                      sampleContent!.toList(),
+                      category,
+                    );
+                    
+                    articles = filteredArticles!.toList().cast<dynamic>();
+                    
+                    setState(() {
+                      isLoading = false;
+                    });
                   },
                 ),
                 _ArticlesListSection(articles: articles),
@@ -471,25 +231,25 @@ class _TopicsSection extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: [
                   _CategoryCard(
-                    title: 'Pregnancy Guide',
-                    subtitle: 'Week by week updates',
+                    title: 'Detection & Signs',
+                    subtitle: 'Early warning signs',
                     color: const Color(0xFFE8B4CB),
-                    onTap: () => onCategorySelected('pregnancy'),
-                    onDoubleTap: () => onCategoryDoubleTapped('pregnancy'),
+                    onTap: () => onCategorySelected('detection'),
+                    onDoubleTap: () => onCategoryDoubleTapped('detection'),
                   ),
                   _CategoryCard(
-                    title: 'Birth Control',
-                    subtitle: 'Family planning info',
+                    title: 'Treatment',
+                    subtitle: 'Management options',
                     color: const Color(0xFFB8D8E0),
-                    onTap: () => onCategorySelected('birth_control'),
-                    onDoubleTap: () => onCategoryDoubleTapped('birth_control'),
+                    onTap: () => onCategorySelected('treatment'),
+                    onDoubleTap: () => onCategoryDoubleTapped('treatment'),
                   ),
                   _CategoryCard(
-                    title: 'Nutrition Tips',
-                    subtitle: 'Healthy eating guides',
+                    title: 'Support & Care',
+                    subtitle: 'Living with cancer',
                     color: const Color(0xFFE8D5B7),
-                    onTap: () => onCategorySelected('nutrition'),
-                    onDoubleTap: () => onCategoryDoubleTapped('nutrition'),
+                    onTap: () => onCategorySelected('support'),
+                    onDoubleTap: () => onCategoryDoubleTapped('support'),
                   ),
                 ].divide(const SizedBox(width: 8.0)),
               ),
