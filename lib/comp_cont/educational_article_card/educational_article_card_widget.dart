@@ -97,6 +97,42 @@ class _EducationalArticleCardWidgetState
                           width: double.infinity,
                           height: double.infinity,
                           fit: BoxFit.cover,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) {
+                              return child;
+                            }
+                            return Container(
+                              width: double.infinity,
+                              height: double.infinity,
+                              color: FlutterFlowTheme.of(context).aiChatBubble,
+                              child: Center(
+                                child: CircularProgressIndicator(
+                                  value: loadingProgress.expectedTotalBytes != null
+                                      ? loadingProgress.cumulativeBytesLoaded /
+                                          loadingProgress.expectedTotalBytes!
+                                      : null,
+                                  strokeWidth: 2.0,
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              width: double.infinity,
+                              height: double.infinity,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).aiChatBubble,
+                              ),
+                              child: Icon(
+                                Icons.medical_services,
+                                color: FlutterFlowTheme.of(context).secondaryText,
+                                size: 32.0,
+                              ),
+                            );
+                          },
                         ),
                       );
                     } else {
@@ -105,6 +141,11 @@ class _EducationalArticleCardWidgetState
                         height: double.infinity,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).aiChatBubble,
+                        ),
+                        child: Icon(
+                          Icons.article,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 32.0,
                         ),
                       );
                     }
