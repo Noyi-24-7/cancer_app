@@ -37,10 +37,10 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>preggos.com</string>
+        <string>cancercare.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>preggos</string>
+        <string>cancercare</string>
         </array>
         </dict>
     </array>
