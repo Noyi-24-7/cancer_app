@@ -113,7 +113,8 @@ dependency_overrides:
   uuid: ^4.0.0
 
 dev_dependencies:
-  flutter_launcher_icons: 0.13.1
+  # flutter_launcher_icons: 0.13.1
+  flutter_launcher_icons: ^0.14.3
   flutter_lints: 4.0.0
   image: 4.2.0
   lints: 4.0.0
@@ -122,13 +123,14 @@ dev_dependencies:
 
 
 flutter_launcher_icons:
-  android: true
+  # android: true
+  android: "ic_launcher"
   ios: true
   remove_alpha_ios: true
   web:
     generate: true
   image_path: 'assets/images/app_launcher_icon.png'
-
+  min_sdk_android: 21
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

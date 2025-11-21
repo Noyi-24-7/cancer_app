@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.mycompany.pregnancyvoiceassistant.app-mergeDebugResources-52:/values-night-v31/values-night-v31.xml",
+            "outputFile": "com.mycompany.cancercare.app-mergeDebugResources-43:/values-night-v31/values-night-v31.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\noyii\\StudioProjects\\pregnancy-voice-assistant-ku850b\\android\\app\\src\\main\\res\\values-night-v31\\styles.xml",
+                    "source": "C:\\Users\\noyii\\Downloads\\cancer\\android\\app\\src\\main\\res\\values-night-v31\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
