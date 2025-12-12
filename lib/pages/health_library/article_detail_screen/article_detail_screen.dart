@@ -143,10 +143,12 @@ class _ArticleDetailScreenWidgetState
       )?.toString() ?? '';
 
       // Only enable audio playback if we have a valid URL
-      final hasValidAudio = audioUrl != null &&
-                           audioUrl.isNotEmpty && 
-                           audioUrl != 'null' && 
-                           audioUrl.startsWith('http');
+      // Use local variable for proper null-safety promotion
+      final url = audioUrl;
+      final hasValidAudio = url != null &&
+                           url.isNotEmpty && 
+                           url != 'null' && 
+                           url.startsWith('http');
 
       setState(() {
         isGeneratingAudio = false;
@@ -372,10 +374,12 @@ class _ArticleDetailScreenWidgetState
                               )?.toString() ?? '';
                               
                               // Only enable audio playback if we have a valid URL
-                              final hasValidAudio = audioUrl != null &&
-                                                   audioUrl.isNotEmpty && 
-                                                   audioUrl != 'null' && 
-                                                   audioUrl.startsWith('http');
+                              // Use local variable for proper null-safety promotion
+                              final url = audioUrl;
+                              final hasValidAudio = url != null &&
+                                                   url.isNotEmpty && 
+                                                   url != 'null' && 
+                                                   url.startsWith('http');
                               
                               setState(() {
                                 isGeneratingAudio = false;
