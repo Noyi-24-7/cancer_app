@@ -37,6 +37,7 @@ class FlutterFlowAudioPlayer extends StatefulWidget {
     required this.elevation,
     this.pauseOnNavigate = true,
     required this.playInBackground,
+    this.autoStart = false,
   }) : super(key: key);
 
   final Audio audio;
@@ -49,6 +50,7 @@ class FlutterFlowAudioPlayer extends StatefulWidget {
   final double elevation;
   final bool pauseOnNavigate;
   final PlayInBackground playInBackground;
+  final bool autoStart;
 
   @override
   _FlutterFlowAudioPlayerState createState() => _FlutterFlowAudioPlayerState();
@@ -73,7 +75,7 @@ class _FlutterFlowAudioPlayerState extends State<FlutterFlowAudioPlayer>
     } else {
       await _assetsAudioPlayer!.open(
         Playlist(audios: [widget.audio]),
-        autoStart: false,
+        autoStart: widget.autoStart,
         playInBackground: widget.playInBackground,
       );
     }

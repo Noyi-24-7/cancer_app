@@ -59,6 +59,10 @@ class _ArticleDetailScreenWidgetState
         widget.article?.title,
         '11 safety tips for your baby\'s nursery',
       );
+      
+      await _translateToEnglish();
+      await _generateAudio();
+      
       if (mounted) {
         setState(() {});
       }
@@ -69,6 +73,84 @@ class _ArticleDetailScreenWidgetState
   void dispose() {
     languageDropdownValueController?.dispose();
     super.dispose();
+  }
+
+  Future<void> _translateToEnglish() async {
+    setState(() {
+      isTranslating = true;
+    });
+
+    articleJsonString = await actions.prepareArticleForAudio(
+      widget.article!.toMap(),
+      'null',
+      'null',
+    );
+
+    translationResponse = await ContentProcessorAPICall.call(
+      articlesJson: articleJsonString!,
+      targetLanguage: 'en',
+      action: 'translate_only',
+      articleId: widget.article?.id,
+    );
+
+    if ((translationResponse?.succeeded ?? true)) {
+      extractedData = await actions.extractTranslatedData(
+        (translationResponse?.jsonBody ?? ''),
+      );
+      translatedContent = getJsonField(
+        extractedData,
+        r'''$.translatedContent''',
+      ).toString();
+      translatedTitle = getJsonField(
+        extractedData,
+        r'''$.translatedTitle''',
+      ).toString();
+      selectedLanguage = 'en';
+      languageDropdownValue = 'en';
+    }
+
+    setState(() {
+      isTranslating = false;
+    });
+  }
+
+  Future<void> _generateAudio() async {
+    if (translatedContent == null || translatedContent!.isEmpty) {
+      return;
+    }
+
+    setState(() {
+      isGeneratingAudio = true;
+    });
+
+    audioArticleJson = await actions.prepareArticleForAudio(
+      widget.article!.toMap(),
+      translatedContent,
+      translatedTitle,
+    );
+
+    audioResponse = await ContentProcessorAPICall.call(
+      articlesJson: audioArticleJson!,
+      targetLanguage: 'en',
+      action: 'translate_and_audio',
+      articleId: widget.article?.id,
+    );
+
+    if ((audioResponse?.succeeded ?? true)) {
+      audioUrl = getJsonField(
+        (audioResponse?.jsonBody ?? ''),
+        r'''$.result.articles[:].audioUrl''',
+      ).toString();
+
+      setState(() {
+        isGeneratingAudio = false;
+        canViewAudio = true;
+      });
+    } else {
+      setState(() {
+        isGeneratingAudio = false;
+      });
+    }
   }
 
   @override
@@ -225,13 +307,15 @@ class _ArticleDetailScreenWidgetState
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 1.0),
-                      child: _AudioPlayerSection(
-                        canViewAudio: canViewAudio,
-                        audioUrl: audioUrl,
-                        isGeneratingAudio: isGeneratingAudio,
-                        onGenerateAudio: () async {
+                    SafeArea(
+                      top: false,
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        child: _AudioPlayerSection(
+                          canViewAudio: canViewAudio,
+                          audioUrl: audioUrl,
+                          isGeneratingAudio: isGeneratingAudio,
+                          onGenerateAudio: () async {
                           if (isGeneratingAudio == false) {
                             setState(() {
                               isGeneratingAudio = true;
@@ -347,6 +431,7 @@ class _ArticleDetailScreenWidgetState
                           }
                         },
                       ),
+                    ),
                     ),
                   ],
                 ),
@@ -770,6 +855,7 @@ class _AudioPlayerSection extends StatelessWidget {
                 inactiveTrackColor: FlutterFlowTheme.of(context).alternate,
                 elevation: 0.0,
                 playInBackground: PlayInBackground.disabledRestoreOnForeground,
+                autoStart: true,
               ),
             if (canViewAudio == false)
               Padding(
