@@ -139,13 +139,22 @@ class _ArticleDetailScreenWidgetState
     if ((audioResponse?.succeeded ?? true)) {
       audioUrl = getJsonField(
         (audioResponse?.jsonBody ?? ''),
-        r'''$.result.articles[:].audioUrl''',
-      ).toString();
+        r'''$.result.articles[0].audioUrl''',
+      )?.toString() ?? '';
+
+      // Only enable audio playback if we have a valid URL
+      final hasValidAudio = audioUrl.isNotEmpty && 
+                           audioUrl != 'null' && 
+                           audioUrl.startsWith('http');
 
       setState(() {
         isGeneratingAudio = false;
-        canViewAudio = true;
+        canViewAudio = hasValidAudio;
       });
+      
+      if (!hasValidAudio) {
+        print('Audio generation failed: Invalid or empty audio URL');
+      }
     } else {
       setState(() {
         isGeneratingAudio = false;
@@ -358,30 +367,57 @@ class _ArticleDetailScreenWidgetState
                               );
                               audioUrl = getJsonField(
                                 (audioResponse?.jsonBody ?? ''),
-                                r'''$.result.articles[:].audioUrl''',
-                              ).toString();
+                                r'''$.result.articles[0].audioUrl''',
+                              )?.toString() ?? '';
+                              
+                              // Only enable audio playback if we have a valid URL
+                              final hasValidAudio = audioUrl.isNotEmpty && 
+                                                   audioUrl != 'null' && 
+                                                   audioUrl.startsWith('http');
+                              
                               setState(() {
                                 isGeneratingAudio = false;
-                                canViewAudio = true;
+                                canViewAudio = hasValidAudio;
                               });
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'Audio ready! Press play to listen',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Gilroy',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          letterSpacing: 0.0,
-                                        ),
+                              
+                              if (hasValidAudio) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Audio ready! Press play to listen',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .override(
+                                            fontFamily: 'Gilroy',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                    duration: const Duration(milliseconds: 2000),
+                                    backgroundColor: FlutterFlowTheme.of(context)
+                                        .micContainerBackground,
                                   ),
-                                  duration: const Duration(milliseconds: 2000),
-                                  backgroundColor: FlutterFlowTheme.of(context)
-                                      .micContainerBackground,
-                                ),
-                              );
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Failed to generate audio. Please try again.',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .override(
+                                            fontFamily: 'Gilroy',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                    duration: const Duration(milliseconds: 2000),
+                                    backgroundColor: FlutterFlowTheme.of(context).error,
+                                  ),
+                                );
+                              }
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
