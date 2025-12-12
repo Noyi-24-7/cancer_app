@@ -143,7 +143,8 @@ class _ArticleDetailScreenWidgetState
       )?.toString() ?? '';
 
       // Only enable audio playback if we have a valid URL
-      final hasValidAudio = audioUrl.isNotEmpty && 
+      final hasValidAudio = audioUrl != null &&
+                           audioUrl.isNotEmpty && 
                            audioUrl != 'null' && 
                            audioUrl.startsWith('http');
 
@@ -371,7 +372,8 @@ class _ArticleDetailScreenWidgetState
                               )?.toString() ?? '';
                               
                               // Only enable audio playback if we have a valid URL
-                              final hasValidAudio = audioUrl.isNotEmpty && 
+                              final hasValidAudio = audioUrl != null &&
+                                                   audioUrl.isNotEmpty && 
                                                    audioUrl != 'null' && 
                                                    audioUrl.startsWith('http');
                               
