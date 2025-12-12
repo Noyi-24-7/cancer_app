@@ -345,7 +345,7 @@ class _ArticleDetailScreenWidgetState
                               translatedTitle,
                             );
                             audioResponse = await ContentProcessorAPICall.call(
-                              articlesJson: articleJsonString!,
+                              articlesJson: audioArticleJson!,
                               targetLanguage: selectedLanguage,
                               action: 'translate_and_audio',
                               articleId: widget.article?.id,
