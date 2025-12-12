@@ -131,7 +131,7 @@ class _ArticleDetailScreenWidgetState
 
     audioResponse = await ContentProcessorAPICall.call(
       articlesJson: audioArticleJson!,
-      targetLanguage: 'en',
+      targetLanguage: selectedLanguage,
       action: 'translate_and_audio',
       articleId: widget.article?.id,
     );
@@ -279,6 +279,10 @@ class _ArticleDetailScreenWidgetState
                                     setState(() {
                                       canViewAudio = false;
                                     });
+                                    
+                                    // Automatically generate audio 2 seconds after translation completes
+                                    await Future.delayed(const Duration(seconds: 2));
+                                    await _generateAudio();
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
